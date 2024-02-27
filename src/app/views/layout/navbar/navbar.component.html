@@ -1,0 +1,43 @@
+<div class="horizontal-menu ">
+<nav >
+  <ul class="sidebar">
+    <li  class="navbar-toggler-button" (click)=" closeHeaderMenu()"> <a><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+    <li class="hazar" *ngFor="let item of menuItems">
+        <a  [routerLink]="item.link"  title={{item.label}}>
+      <img  src={{item.icon}} alt="logo">
+      <span class="mx-3" style="color: whitesmoke;">{{item.label}}</span>
+    </a>
+  </li>
+
+  </ul>
+  <ul class="side-nav">
+    <li >
+      <a routerLink="/dashboard" class="navbar-brand nobleui-logo" title="Ana Sayfa">
+      <img src="assets/icons/logo.png" alt="logo" style="height: 2.5rem">
+    </a>
+  </li>
+    <li class="menu-apperance" *ngFor="let item of menuItems">
+      <a  [routerLink]="item.link" title={{item.label}}>
+    <img  src={{item.icon}} alt="logo">
+  </a>
+</li>
+  <li class="menu-apperance" ngbDropdown>
+    <a ngbDropdownToggle id="profileDropdown">
+      <img src="assets/icons/user.png" alt="profile">
+      <span class="mx-2" style="color: whitesmoke;">{{loggedUserEmail}}</span>
+    </a>
+    <div ngbDropdownMenu class="px-0" aria-labelledby="profileDropdown">
+      <ul class="list-unstyled p-1">
+        <li class="dropdown-item py-2">
+          <a href="" (click)="onLogout($event)" class="d-flex text-body ms-0">
+            <i class="feather icon-log-out me-2 icon-md"></i>
+            <span>Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </li>
+    <li class="navbar-toggler-button" (click)=" toggleHeaderMenu()"><a><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+  </ul>
+</nav>
+</div>
